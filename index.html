@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MQ-135 Multi-Purpose Gas Sensor Information">
+    <title>MQ-135 Gas Sensor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Multi-Purpose Gas Sensor (MQ-135)</h1>
+    </header>
+    
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>The MQ-135 is a gas sensor designed to detect various air pollutants. It is widely used in air quality monitoring, industrial environments, and environmental research.</p>
+    </section>
+
+    <section id="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Detection Range:</strong> Detects ammonia (NH3), NOx, alcohol, benzene, smoke, and CO2.</li>
+            <li><strong>Sensor Type:</strong> Solid-state with a heating element and MOX layer.</li>
+            <li><strong>Sensitivity:</strong> Resistance varies based on gas concentration.</li>
+        </ul>
+    </section>
+
+    <section id="specifications">
+        <h2>Technical Specifications</h2>
+        <ul>
+            <li>Voltage: 5V DC</li>
+            <li>Output: Analog and Digital</li>
+            <li>Heater Resistance: 31Ω</li>
+            <li>Preheating Time: 24-48 hours</li>
+        </ul>
+    </section>
+
+    <section id="applications">
+        <h2>Applications</h2>
+        <p>The MQ-135 sensor is used in air purifiers, smart home systems, and environmental monitoring systems.</p>
+    </section>
+
+    <section id="code">
+        <h2>Sample Arduino Code</h2>
+        <pre>
+#define MQ135_PIN A0 
+#define LED_PIN 2 
+void setup() { 
+    Serial.begin(9600);
+    pinMode(LED_PIN, OUTPUT); 
+}
+void loop() { 
+    int sensorValue = analogRead(MQ135_PIN);
+    Serial.print("Sensor Value: ");
+    Serial.println(sensorValue);
+    if (sensorValue < 330) { 
+        digitalWrite(LED_PIN, LOW); 
+    } else { 
+        digitalWrite(LED_PIN, HIGH); 
+    }
+    delay(1000); 
+}
+        </pre>
+    </section>
+
+    <footer>
+        <p>For more details, check the <a href="https://docs.google.com/document/d/1ycSrD5aEMXP8b4iOWRAaYxe6nc4VWNXuJbO2A38YOls/edit?tab=t.0" target="_blank">Project Documentation</a>.</p>
+    </footer>
+</body>
+</html>
